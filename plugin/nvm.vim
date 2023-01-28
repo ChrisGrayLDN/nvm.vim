@@ -9,11 +9,8 @@ let nvm_node_symlink_path="/config/nvim/"
 "@returns {void}
 function! NvmSelect(nodeVersion)
   let path = expand("~/.nvm/versions/node/" . a:nodeVersion . "/bin")
-  if filereadable(l:path)
-    :execute(":!ln -snf " . l:path . " " . g:nvm_node_symlink_path)
-  else
-    :echoerr "node " . a:nodeVersion . " not found, make sure it is installed"
-  endif
+
+  :execute(":!ln -snf " . l:path . " " . g:nvm_node_symlink_path)
 endfunction
 
 "Opens an horizontal split, displaying every nvm node versions available in
