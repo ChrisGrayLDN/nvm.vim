@@ -8,13 +8,9 @@ let nvm_node_symlink_path="/config/nvim/bin"
 "
 "@returns {void}
 function! NvmSelect(nodeVersion)
-  let path = expand("~/.nvm/versions/node/" . a:nodeVersion . "/bin/node")
-  let npm = expand("~/.nvm/versions/node/" . a:nodeVersion . "/bin/npm")
-  let npx = expand("~/.nvm/versions/node/" . a:nodeVersion . "/bin/npx")
+  let path = expand("~/.nvm/versions/node/" . a:nodeVersion . "/bin")
   if filereadable(l:path)
     :execute(":!ln -snf " . l:path . " " . g:nvm_node_symlink_path)
-    :execute(":!ln -snf " . l:npm . " " . g:nvm_node_symlink_path)
-    :execute(":!ln -snf " . l:npx . " " . g:nvm_node_symlink_path)
   else
     :echoerr "node " . a:nodeVersion . " not found, make sure it is installed"
   endif
