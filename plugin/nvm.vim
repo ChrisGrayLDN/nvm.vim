@@ -1,4 +1,4 @@
-let nvm_node_symlink_path="/config/nvim/bin/node"
+let nvm_node_symlink_path="/config/nvim/bin"
 
 "links g:nvm_node_symlink_path symlink to the given a:nodeVersion nvm node bin
 "
